@@ -1,2 +1,2 @@
-require("myplugins.remap")
-require("myplugins.set")
+require("remap")
+require("set")
