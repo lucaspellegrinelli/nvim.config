@@ -16,6 +16,8 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+    use('nvim-treesitter/nvim-treesitter-context')
+    use('lambdalisue/fern.vim')
 
     use({
         'rose-pine/neovim',
