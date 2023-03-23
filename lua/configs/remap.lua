@@ -9,7 +9,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Project file structure viewers
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>pt", ":Fern . -reveal=% -drawer -toggle<CR>", { silent = true })
 
 -- Move selected lines up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

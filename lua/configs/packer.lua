@@ -18,16 +18,9 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use('nvim-treesitter/nvim-treesitter-context')
-    use('lambdalisue/fern.vim')
     use('jose-elias-alvarez/null-ls.nvim')
 
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
+    use('rose-pine/neovim')
 
     use {
         'numToStr/Comment.nvim',
