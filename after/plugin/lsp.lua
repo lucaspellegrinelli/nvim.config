@@ -21,3 +21,23 @@ cmp.setup({
         end),
     },
 })
+
+-- Make so pylsp uses Black and Flake8 for formatting and linting
+require'lspconfig'.pyright.setup{
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end,
+    settings = {
+        python = {
+            formatting = {
+                provider = 'black',
+            },
+            linting = {
+                enabled = true,
+                provider = 'flake8',
+            },
+        },
+    },
+}
+
