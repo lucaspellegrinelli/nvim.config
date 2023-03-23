@@ -1,12 +1,10 @@
 local function fern_init()
     -- Collapse folder
 	vim.keymap.set('n', 'h', '<Plug>(fern-action-collapse)', { buffer = true, nowait = true })
-    -- vim.keymap.set_keymap('n', '<Left>', '<Plug>(fern-action-collapse)', { buffer = true, nowait = true })
 
     -- Expand folder
 	vim.keymap.set('n', 'l', '<Plug>(fern-action-open-or-expand)', { buffer = true, nowait = true })
 	vim.keymap.set('n', '<leader>', '<Plug>(fern-action-open-or-expand)', { buffer = true, nowait = true })
-    -- vim.keymap.set_keymap('n', '<Right>', '<Plug>(fern-action-open-or-expand)', { buffer = true, nowait = true })
 
     -- Enter folder
     vim.keymap.set('n', '<BS>', '<Plug>(fern-action-leave)', { buffer = true })
