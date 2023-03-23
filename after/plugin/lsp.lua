@@ -22,22 +22,21 @@ cmp.setup({
     },
 })
 
--- Make so pylsp uses Black and Flake8 for formatting and linting
-require'lspconfig'.pyright.setup{
-    on_attach = function(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-    end,
-    settings = {
-        python = {
-            formatting = {
-                provider = 'black',
-            },
-            linting = {
-                enabled = true,
-                provider = 'flake8',
-            },
-        },
-    },
-}
+-- Setup Python LSP
+require'lspconfig'.pyright.setup{}
 
+-- Setup null-ls for formatting code
+local null_ls = require('null-ls')
+null_ls.setup({
+    sources = {
+        require'null-ls'.builtins.formatting.black,
+        require'null-ls'.builtins.formatting.isort,
+    }
+})
+
+vim.api.nvim_exec([[
+    augroup fmt
+    autocmd!
+    autocmd BufWritePre *.py lua vim.lsp.buf,formatting_sync()
+    augroup END
+]], false)

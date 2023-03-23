@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('nvim-treesitter/nvim-treesitter-context')
     use('lambdalisue/fern.vim')
+    use('jose-elias-alvarez/null-ls.nvim')
 
     use({
         'rose-pine/neovim',
