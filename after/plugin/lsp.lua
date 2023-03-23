@@ -34,9 +34,3 @@ null_ls.setup({
     }
 })
 
-vim.api.nvim_exec([[
-    augroup fmt
-    autocmd!
-    autocmd BufWritePre *.py lua vim.lsp.buf,formatting_sync()
-    augroup END
-]], false)
