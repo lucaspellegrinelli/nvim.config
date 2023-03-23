@@ -19,5 +19,3 @@ if is_win then
       vim.opt[option] = value
     end
 end
-
-
