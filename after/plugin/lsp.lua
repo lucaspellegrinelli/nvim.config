@@ -24,4 +24,3 @@ cmp.setup({
 
 -- Setup Python LSP
 require'lspconfig'.pyright.setup{}
-

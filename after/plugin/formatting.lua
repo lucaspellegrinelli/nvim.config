@@ -6,4 +6,3 @@ null_ls.setup({
         require'null-ls'.builtins.formatting.isort,
     }
 })
-
