@@ -21,6 +21,8 @@ return require('packer').startup(function(use)
     use('jose-elias-alvarez/null-ls.nvim')
 
     use('rose-pine/neovim')
+    use('prichrd/netrw.nvim')
+    use('nvim-tree/nvim-web-devicons')
 
     use {
         'numToStr/Comment.nvim',
