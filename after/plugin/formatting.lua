@@ -4,5 +4,6 @@ null_ls.setup({
     sources = {
         require'null-ls'.builtins.formatting.black,
         require'null-ls'.builtins.formatting.isort,
+        require'null-ls'.builtins.formatting.rustfmt,
     }
 })
