@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('nvim-treesitter/nvim-treesitter-context')
     use('jose-elias-alvarez/null-ls.nvim')
-    use('skwp/greplace.vim')
+    -- use('brooth/far.vim')
 
     use('rose-pine/neovim')
     use('prichrd/netrw.nvim')
@@ -31,10 +31,6 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-
-    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
