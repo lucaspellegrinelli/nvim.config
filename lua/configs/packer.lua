@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter-context')
     use('jose-elias-alvarez/null-ls.nvim')
     -- use('brooth/far.vim')
+    use('lucaspellegrinelli/rip.nvim')
 
     use('rose-pine/neovim')
     use('prichrd/netrw.nvim')
