@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('nvim-treesitter/nvim-treesitter-context')
     use('jose-elias-alvarez/null-ls.nvim')
+    use('ntpeters/vim-better-whitespace')
     -- use('brooth/far.vim')
     use('lucaspellegrinelli/rip.nvim')
 
