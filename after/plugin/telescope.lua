@@ -7,7 +7,7 @@ vim.keymap.set('n', '<leader>ps', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
-vim.keymap.set('n', '<leader>w', function()
+vim.keymap.set('n', '<C-f>', function()
     builtin.current_buffer_fuzzy_find(themes.get_dropdown {
         winblend = 10,
         previewer = false,
