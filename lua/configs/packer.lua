@@ -28,13 +28,6 @@ return require('packer').startup(function(use)
     use('nvim-tree/nvim-web-devicons')
 
     use {
-        'ntpeters/vim-better-whitespace',
-        config = function()
-            vim.g.better_whitespace_operator = ""
-        end
-    }
-
-    use {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
