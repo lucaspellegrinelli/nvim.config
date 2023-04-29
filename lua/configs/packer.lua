@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('nvim-treesitter/nvim-treesitter-context')
     use('jose-elias-alvarez/null-ls.nvim')
-    use('ntpeters/vim-better-whitespace')
     use("theprimeagen/harpoon")
     -- use('brooth/far.vim')
     use('lucaspellegrinelli/rip.nvim')
@@ -27,6 +26,13 @@ return require('packer').startup(function(use)
     use('rose-pine/neovim')
     use('prichrd/netrw.nvim')
     use('nvim-tree/nvim-web-devicons')
+
+    use {
+        'ntpeters/vim-better-whitespace',
+        config = function()
+            vim.g.better_whitespace_operator = ""
+        end
+    }
 
     use {
         'numToStr/Comment.nvim',
