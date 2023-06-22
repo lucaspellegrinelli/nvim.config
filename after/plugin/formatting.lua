@@ -6,5 +6,9 @@ null_ls.setup({
         require 'null-ls'.builtins.formatting.isort,
         require 'null-ls'.builtins.formatting.rustfmt,
         require 'null-ls'.builtins.formatting.eslint_d,
+        require 'null-ls'.builtins.formatting.prettierd,
+        require 'null-ls'.builtins.formatting.prettierd.with({
+            filetypes = { 'svelte' },
+        }),
     }
 })
