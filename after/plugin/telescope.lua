@@ -1,7 +1,7 @@
 local builtin = require('telescope.builtin')
 local themes = require('telescope.themes')
 
-vim.keymap.set('n', '<C-l>', builtin.find_files, {})
+vim.keymap.set('n', '<C-k>', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
 

@@ -1,8 +1,7 @@
 require("configs.packer")
 require("configs.remap")
 require("configs.set")
-
-vim.g.netrw_banner = 0
+require("configs.netrw")
 
 -- Mark trailing whitespaces
 vim.cmd('highlight ExtraWhitespace ctermbg=red guibg=#c0392b')
