@@ -20,8 +20,8 @@ vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
 vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
+vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end)
 vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end)
-vim.keymap.set("n", "<C-e>", function() vim.diagnostic.open_float() end)
 
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
