@@ -1,14 +1,1 @@
--- Setup null-ls for formatting code
-local null_ls = require('null-ls')
-null_ls.setup({
-    sources = {
-        require 'null-ls'.builtins.formatting.black,
-        require 'null-ls'.builtins.formatting.isort,
-        require 'null-ls'.builtins.formatting.rustfmt,
-        require 'null-ls'.builtins.formatting.eslint_d,
-        require 'null-ls'.builtins.formatting.prettierd,
-        require 'null-ls'.builtins.formatting.prettierd.with({
-            filetypes = { 'svelte' },
-        }),
-    }
-})
+vim.keymap.set("n", "<leader>f", function() vim.cmd("Neoformat") end)
