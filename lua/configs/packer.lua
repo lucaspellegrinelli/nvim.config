@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
     use('RRethy/vim-illuminate')
     use('ggandor/lightspeed.nvim')
     use('lucaspellegrinelli/rip.nvim')
-    use('sbdchd/neoformat')
 
     use('rose-pine/neovim')
     use('prichrd/netrw.nvim')
