@@ -11,7 +11,7 @@ end, {})
 
 vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
 
-vim.keymap.set('n', '<C-_>', function()
+vim.keymap.set('n', '<C-k>', function()
     builtin.current_buffer_fuzzy_find(themes.get_dropdown {
         winblend = 10,
         previewer = false,
