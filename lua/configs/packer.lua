@@ -6,6 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'nvim-lua/plenary.nvim'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.x',
@@ -17,8 +18,10 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('theprimeagen/harpoon')
     use('RRethy/vim-illuminate')
-    use('ggandor/lightspeed.nvim')
+    use('airblade/vim-rooter')
     use('lucaspellegrinelli/rip.nvim')
+    use('ggandor/leap.nvim')
+    use('ggandor/flit.nvim')
 
     use({ 'rose-pine/neovim', as = 'rose-pine' })
     use('prichrd/netrw.nvim')
