@@ -7,6 +7,7 @@ end)
 lsp_zero.setup_servers({
     'lua_ls',
     'pylsp',
+    'tsserver',
 })
 
 require('mason').setup({})
