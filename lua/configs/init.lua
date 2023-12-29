@@ -10,3 +10,7 @@ vim.cmd('autocmd BufWinEnter * match ExtraWhitespace /\\s\\+$/')
 vim.cmd('autocmd InsertEnter * match ExtraWhitespace /\\s\\+\\%#\\@<!$/')
 vim.cmd('autocmd InsertLeave * match ExtraWhitespace /\\s\\+$/')
 vim.cmd('autocmd BufWinLeave * call clearmatches()')
+
+-- Keep { and } from modifying the jumplist
+vim.cmd('nnoremap <silent> } :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>')
+vim.cmd('nnoremap <silent> { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>')
