@@ -6,8 +6,7 @@ end)
 
 lsp_zero.setup_servers({
     'lua_ls',
-    'pyright',
-    'tsserver',
+    'pylsp',
 })
 
 require('mason').setup({})
@@ -21,13 +20,13 @@ require('mason-lspconfig').setup({
 local cmp = require('cmp')
 
 cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    -- `Enter` key to confirm completion
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    mapping = cmp.mapping.preset.insert({
+        -- `Enter` key to confirm completion
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
-    -- Ctrl+Space to trigger completion menu
-    ['<C-Space>'] = cmp.mapping.complete(),
-  })
+        -- Ctrl+Space to trigger completion menu
+        ['<C-Space>'] = cmp.mapping.complete(),
+    })
 })
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
