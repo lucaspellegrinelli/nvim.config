@@ -1,22 +1,24 @@
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 
-vim.keymap.set("n", "<C-p>", function()
+local function fuzzy_find_files()
     if vim.fn.system("git rev-parse --is-inside-work-tree") == "true" then
         builtin.git_files()
     else
         builtin.find_files()
     end
-end, {})
+end
 
-vim.keymap.set("n", "<leader>s", builtin.live_grep, {})
-
-vim.keymap.set("n", "<C-k>", function()
+local function fuzzy_find_in_buffer()
     builtin.current_buffer_fuzzy_find(themes.get_dropdown({
         winblend = 10,
         previewer = false,
     }))
-end, { desc = "[/] Fuzzily search in current buffer" })
+end
+
+vim.keymap.set("n", "<C-p>", fuzzy_find_files, {})
+vim.keymap.set("n", "<C-k>", fuzzy_find_in_buffer, {})
+vim.keymap.set("n", "<leader>s", builtin.live_grep, {})
 
 require("telescope").setup({
     defaults = {
