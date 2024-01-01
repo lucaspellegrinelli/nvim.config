@@ -76,8 +76,10 @@ require("lazy").setup({
     },
     {
         "ThePrimeagen/harpoon",
-        branch = "master",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        branch = "harpoon2",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
         config = function()
             require("core.configs.harpoon")
         end,
