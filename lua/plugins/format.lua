@@ -18,7 +18,7 @@ return {
         },
         format_on_save = {
             lsp_fallback = true,
-            async = false,
+            async = true,
             timeout_ms = 1000,
         },
     },
@@ -28,7 +28,7 @@ return {
             function()
                 require("conform").format({
                     lsp_fallback = true,
-                    async = false,
+                    async = true,
                     timeout_ms = 1000,
                 })
             end,

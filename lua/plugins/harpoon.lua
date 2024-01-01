@@ -4,15 +4,14 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    config = function()
+    opts = {
+        settings = {
+            save_on_toggle = true,
+            sync_on_ui_close = true,
+        },
+    },
+    init = function()
         local harpoon = require("harpoon")
-
-        harpoon:setup({
-            settings = {
-                save_on_toggle = true,
-                sync_on_ui_close = true,
-            },
-        })
 
         vim.keymap.set("n", "<leader>m", function()
             harpoon:list():append()
