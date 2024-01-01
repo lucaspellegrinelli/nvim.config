@@ -2,8 +2,6 @@
 
 ## How to setup
 
-### Linux/MacOS
-
 1. Clone this repository in `~/.config`
 2. Rename the repository to `nvim` (with `mv ./nvim.config ./nvim` for example)
 3. Open neovim anywhere with `nvim .`
