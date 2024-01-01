@@ -4,6 +4,7 @@ require("oil").setup({
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
         ["-"] = "actions.parent",
+        ["="] = "actions.refresh",
     },
 })
 
