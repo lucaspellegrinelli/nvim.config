@@ -1,9 +1,6 @@
 -- Setting up <leader>
 vim.g.mapleader = " "
 
--- Project file structure viewers
-vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
-
 -- Move selected lines up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

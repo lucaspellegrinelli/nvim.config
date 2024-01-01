@@ -25,6 +25,15 @@ require("lazy").setup({
         end,
     },
     {
+        "stevearc/oil.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("core.configs.oil")
+        end,
+    },
+    {
         "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",

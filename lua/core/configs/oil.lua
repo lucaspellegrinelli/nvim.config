@@ -1,0 +1,10 @@
+require("oil").setup({
+    use_default_keymaps = false,
+    keymaps = {
+        ["g?"] = "actions.show_help",
+        ["<CR>"] = "actions.select",
+        ["-"] = "actions.parent",
+    },
+})
+
+vim.keymap.set("n", "<leader>p", "<CMD>Oil<CR>", { desc = "Open parent directory" })
