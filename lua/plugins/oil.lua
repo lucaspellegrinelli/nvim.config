@@ -12,6 +12,9 @@ return {
                 ["-"] = "actions.parent",
                 ["="] = "actions.refresh",
             },
+            view_options = {
+                show_hidden = true,
+            },
         })
 
         vim.keymap.set("n", "<leader>p", "<CMD>Oil<CR>", { desc = "Open parent directory" })

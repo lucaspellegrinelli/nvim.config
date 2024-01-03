@@ -16,11 +16,6 @@ return {
             lua = { "stylua" },
             python = { "isort", "black" },
         },
-        format_on_save = {
-            lsp_fallback = true,
-            async = true,
-            timeout_ms = 1000,
-        },
     },
     keys = {
         {
