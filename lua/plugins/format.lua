@@ -15,6 +15,8 @@ return {
             yaml = { "prettier" },
             lua = { "stylua" },
             python = { "isort", "black" },
+            cpp = { "clang_format" },
+            c = { "clang_format" },
         },
     },
     keys = {
