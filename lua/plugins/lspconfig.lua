@@ -55,6 +55,7 @@ return {
                 "stylua",
                 "isort",
                 "black",
+                "clang-format",
                 "pylint",
                 "eslint_d",
             },
