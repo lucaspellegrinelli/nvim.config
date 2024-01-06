@@ -89,54 +89,9 @@ return {
                         on_attach = on_attach,
                     })
                 end,
-                ["lua_ls"] = function()
-                    lspconfig.lua_ls.setup({
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    -- ignore undefined vim global
-                                    globals = { "vim" },
-                                },
-                                workspace = {
-                                    -- make language server aware of runtime files
-                                    library = {
-                                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                                        [vim.fn.stdpath("config") .. "/lua"] = true,
-                                    },
-                                },
-                            },
-                        },
-                    })
-                end,
-                ["clangd"] = function()
-                    lspconfig.clangd.setup({
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                        cmd = {
-                            "clangd",
-                            "--offset-encoding=utf-16",
-                        },
-                    })
-                end,
-                ["svelte"] = function()
-                    lspconfig.svelte.setup({
-                        capabilities = capabilities,
-                        on_attach = function(client, bufnr)
-                            on_attach(client, bufnr)
-
-                            vim.api.nvim_create_autocmd("BufWritePost", {
-                                pattern = { "*.js", "*.ts" },
-                                callback = function(ctx)
-                                    if client.name == "svelte" then
-                                        client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-                                    end
-                                end,
-                            })
-                        end,
-                    })
-                end,
+                ["lua_ls"] = require("plugins.lsp.lua_ls")(lspconfig, capabilities, on_attach),
+                ["clangd"] = require("plugins.lsp.clangd")(lspconfig, capabilities, on_attach),
+                ["svelte"] = require("plugins.lsp.svelte")(lspconfig, capabilities, on_attach),
             },
         })
     end,
