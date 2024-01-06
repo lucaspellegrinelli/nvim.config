@@ -3,11 +3,16 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
-        { "antosha417/nvim-lsp-file-operations", config = true },
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
+        local mason = require("mason")
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local mason_lspconfig = require("mason-lspconfig")
+        local mason_tool_installer = require("mason-tool-installer")
 
         local opts = { noremap = true, silent = true }
         local on_attach = function(_, bufnr)
@@ -34,73 +39,87 @@ return {
 
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
-        lspconfig.pyright.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig.tsserver.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        -- ignore undefined vim global
-                        globals = { "vim" },
-                    },
-                    workspace = {
-                        -- make language server aware of runtime files
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true,
-                        },
-                    },
+        mason.setup({
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗",
                 },
             },
         })
 
-        lspconfig.html.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        mason_tool_installer.setup({
+            ensure_installed = {
+                "prettier",
+                "stylua",
+                "isort",
+                "black",
+                "pylint",
+                "eslint_d",
+            },
         })
 
-        lspconfig.cssls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig.tailwindcss.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig.svelte.setup({
-            capabilities = capabilities,
-            on_attach = function(client, bufnr)
-                on_attach(client, bufnr)
-
-                vim.api.nvim_create_autocmd("BufWritePost", {
-                    pattern = { "*.js", "*.ts" },
-                    callback = function(ctx)
-                        if client.name == "svelte" then
-                            client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-                        end
-                    end,
-                })
-            end,
-        })
-
-        lspconfig.clangd.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            cmd = {
+        mason_lspconfig.setup({
+            ensure_installed = {
+                "pyright",
+                "tsserver",
+                "html",
+                "cssls",
+                "tailwindcss",
+                "svelte",
+                "lua_ls",
                 "clangd",
-                "--offset-encoding=utf-16",
+            },
+            automatic_installation = true,
+            handlers = {
+                function(server_name)
+                    lspconfig[server_name].setup({
+                        capabilities = capabilities,
+                        on_attach = on_attach,
+                    })
+                end,
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup({
+                        capabilities = capabilities,
+                        on_attach = on_attach,
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    -- ignore undefined vim global
+                                    globals = { "vim" },
+                                },
+                                workspace = {
+                                    -- make language server aware of runtime files
+                                    library = {
+                                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                                        [vim.fn.stdpath("config") .. "/lua"] = true,
+                                    },
+                                },
+                            },
+                        },
+                    })
+                end,
+            },
+            ["clangd"] = {
+                cmd = {
+                    "clangd",
+                    "--offset-encoding=utf-16",
+                },
+            },
+            ["svelte"] = {
+                on_attach = function(client, bufnr)
+                    on_attach(client, bufnr)
+
+                    vim.api.nvim_create_autocmd("BufWritePost", {
+                        pattern = { "*.js", "*.ts" },
+                        callback = function(ctx)
+                            if client.name == "svelte" then
+                                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+                            end
+                        end,
+                    })
+                end,
             },
         })
     end,

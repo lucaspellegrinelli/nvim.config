@@ -1,6 +1,5 @@
 return {
     "lucaspellegrinelli/rip.nvim",
-    lazy = true,
     config = function()
         local rip = require("rip")
 
