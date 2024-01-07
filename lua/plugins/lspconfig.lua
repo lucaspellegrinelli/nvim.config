@@ -20,30 +20,16 @@ return {
         --     update_in_insert = true,
         -- })
 
-        local opts = { noremap = true, silent = true }
+        local capabilities = cmp_nvim_lsp.default_capabilities()
         local on_attach = function(_, bufnr)
-            opts.buffer = bufnr
-
-            opts.desc = "Code action"
+            local opts = { noremap = true, silent = true, buffer = bufnr }
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-
-            opts.desc = "Show LSP references"
             vim.keymap.set("n", "<leader>rr", vim.lsp.buf.references, opts)
-
-            opts.desc = "Rename symbol"
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-            opts.desc = "Open diagnostics window"
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-
-            opts.desc = "Show documentation for what is under cursor"
             vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-            opts.desc = "Go to definition"
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         end
-
-        local capabilities = cmp_nvim_lsp.default_capabilities()
 
         mason.setup({
             ui = {
