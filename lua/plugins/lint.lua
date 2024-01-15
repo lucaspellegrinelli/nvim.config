@@ -5,6 +5,10 @@ return {
     config = function()
         local lint = require("lint")
 
+        -- Disable some pylint warnings
+        local pylint = require("lint").linters.pylint
+        table.insert(pylint.args, "--disable=C0114,C0115,C0116")
+
         lint.linters_by_ft = {
             javascript = { "eslint_d" },
             typescript = { "eslint_d" },
