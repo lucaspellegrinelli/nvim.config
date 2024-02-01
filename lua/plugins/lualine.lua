@@ -11,16 +11,22 @@ return {
                 icons_enabled = true,
             },
             sections = {
-                lualine_a = { 'mode' },
-                lualine_b = { 'branch' },
-                lualine_c = { },
-                lualine_x = { 'filename' },
-                lualine_y = { 'progress' },
-                lualine_z = { 'location' }
+                lualine_a = { "mode" },
+                lualine_b = { "branch" },
+                lualine_c = {},
+                lualine_x = {
+                    {
+                        "filename",
+                        file_status = true,
+                        path = 1,
+                    },
+                },
+                lualine_y = { "progress" },
+                lualine_z = { "location" },
             },
             extensions = {
                 "oil",
             },
         })
-    end
+    end,
 }
