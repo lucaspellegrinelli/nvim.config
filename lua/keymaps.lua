@@ -19,3 +19,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Batch replace
 vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Leave insert mode
+vim.keymap.set("i", "jk", "<Esc>")
