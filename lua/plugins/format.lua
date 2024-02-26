@@ -17,6 +17,7 @@ return {
             python = { "isort", "black" },
             cpp = { "clang_format" },
             c = { "clang_format" },
+            sh = { "shellcheck" },
         },
     },
     keys = {
