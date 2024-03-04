@@ -1,5 +1,6 @@
 -- Setting up <leader>
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Move selected lines up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
