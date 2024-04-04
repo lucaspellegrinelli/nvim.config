@@ -4,8 +4,8 @@ return {
         vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
         vim.keymap.set("n", "<leader>gp", "<cmd>Git -c push.default=current push<CR>")
         vim.keymap.set("n", "<leader>gfp", function ()
-            local confirm = vim.fn.input("Are you sure you want to force push? (y/n): ")
-            if confirm == "y" then
+            local confirm = vim.fn.input("Type 'force' to confirm: ")
+            if confirm == "force" then
                 vim.cmd("Git -c push.default=current push --force")
             end
         end)
