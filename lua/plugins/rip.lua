@@ -1,7 +1,5 @@
 return {
     "lucaspellegrinelli/rip.nvim",
-    dev=true,
-    dir="~/projects/rip.nvim",
     config = function()
         local rip = require("rip")
         rip.setup()

@@ -5,7 +5,7 @@ return {
     config = function()
         local todo = require("todo-comments")
         todo.setup({
-            signs = false,
+            signs = true,
             highlight = {
                 pattern = [[.*<(KEYWORDS)\s*]],
             },
