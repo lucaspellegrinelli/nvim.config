@@ -1,3 +1,6 @@
 return {
-    "tpope/vim-commentary"
+    "tpope/vim-commentary",
+    config = function()
+        vim.cmd("autocmd FileType gleam setlocal commentstring=//\\ %s")
+    end,
 }
