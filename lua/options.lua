@@ -4,7 +4,7 @@ vim.g.netrw_keepdir = 0
 
 -- Line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Hide mode since it's already displayed in the statusline
 vim.opt.showmode = false
